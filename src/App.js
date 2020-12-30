@@ -1,16 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+// import { Counter } from './features/counter/Counter'; // default redux component
+import './App.scss';
 
-const Paul = () => {
+const HW = () => {
+  const [ ourData, setOurData] = useState("")
   useEffect((() => {
-    // fetch("https://pacific-atoll-67065.herokuapp.com/")
-    fetch("https://swapi.dev/api/people/1")
-      .then(res => console.log(res, "!!!!"))
+    const proxyurl = "https://cors-anywhere.herokuapp.com/"; // this gets around cors errors
+    const url = "https://pacific-atoll-67065.herokuapp.com/";
+    fetch(proxyurl + url)
+      .then(x => x.text()) // this is needed until we change response to json
+      .then((x) => {
+        setOurData(x)
+      })
+      .catch(x => console.log('!!! x failed',x))
   }) ,[])
   return (
-    <span>d</span>
+    <span>{ourData}</span>
   )
 }
 
@@ -19,8 +25,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <Paul/>
+        <HW/>
       </header>
     </div>
   );
