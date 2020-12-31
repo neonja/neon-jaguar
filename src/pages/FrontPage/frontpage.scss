@@ -1,5 +1,12 @@
 .frontpage {
-  border: 1px solid orange;
   padding-left: 20px;
   margin-top: 20px;
+  a {
+    color: lightblue;
+    text-decoration: none;
+    transition: color .6s;
+    &:hover {
+      color: rgba(100,200,150,.6)
+    }
+  }
 }

@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './frontpage.scss';
 const FrontPage = () => {
   return (
     <div className="frontpage">
-      <span>Shop Boards Now</span>
+      <Link to="/boards">
+        <span>Shop Boards Now</span>
+      </Link>
     </div>
   )
 }
