@@ -11,7 +11,12 @@ const boards = [
 function ShopPage() {
   return (
     <div className="shop-page">
-      <span>Here are the current boards we offer...</span>
+      <span className="shop-page-title">Here are the current boards we offer...</span>
+      <div className="board-categories">
+        <span>Brand</span>
+        <span>Item</span>
+        <span>Id</span>
+      </div>
       {
         boards.map(board => {
           return (
@@ -19,6 +24,7 @@ function ShopPage() {
           )
         })
       }
+
     </div>
   )
 }

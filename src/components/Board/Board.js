@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './board.scss';
 
 function Board({board}) {
   const { brand, item, id } = board;
@@ -24,6 +25,7 @@ function Board({board}) {
       <span>{brand}</span>
       <span>{item}</span>
       <span>{id}</span>
+      <button>delete button</button>
     </div>
   )
 }

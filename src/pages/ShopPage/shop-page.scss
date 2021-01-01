@@ -1,5 +1,16 @@
 .shop-page {
   border: 1px solid lightblue;
   color: lightblue;
-  margin: 20px;
+  .shop-page-title {
+    border: 2px solid blue;
+    margin-bottom: 20px;
+  }
+  .board-categories {
+    display: flex;
+    justify-content: center;
+    * {
+      margin: 20px;
+    }
+
+  }
 }
