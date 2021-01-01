@@ -6,14 +6,17 @@ function Board({board}) {
   const { ourData, setOurData} = useState(42)
 
   useEffect((() => {
-    const proxyurl = "https://cors-anywhere.herokuapp.com/"; // this gets around cors errors
-    const url = "https://pacific-atoll-67065.herokuapp.com/";
+    // this pre-pend gets around cors errors
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    // our internal enpoint
+    const url = "https://arcane-meadow-19297.herokuapp.com/skateboards";
     fetch(proxyurl + url)
-      .then(x => x.text()) // this is needed until we change response to json
-      .then((x) => {
-        console.log('here is our stuff', ourData)
+      .then(x => x.text())
+      .then(x => {
+        console.log('middleware 1');
+        console.table(x)
       })
-      .catch(x => console.log('!!! x failed',x))
+      .catch(x => console.log('!!! x failed-----',x))
   }) ,[])
 
   useEffect(() => {

@@ -20,7 +20,7 @@ function ShopPage() {
       {
         boards.map(board => {
           return (
-          <Board board={board} />
+          <Board key={board.id}board={board} />
           )
         })
       }
