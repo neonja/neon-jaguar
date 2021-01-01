@@ -9,5 +9,7 @@
   button {
     border: 1px solid red;
     transition: color .4s, background .6s;
+    position: relative;
+    left: 50px;
   }
 }

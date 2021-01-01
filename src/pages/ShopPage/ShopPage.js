@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Board from '../../components/Board/Board.js';
 import './shop-page.scss';
 
@@ -9,6 +9,22 @@ const boards = [
 ];
 
 function ShopPage() {
+  const [ ourData, setOurData ] = useState(undefined)
+  useEffect((() => {
+    // this pre-pend gets around cors errors
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    // our internal enpoint
+    const url = "https://arcane-meadow-19297.herokuapp.com/skateboards";
+    fetch(proxyurl + url)
+      .then(x => x.json())
+      .then(x => {
+        console.log('middleware 1',x);
+        console.table(x)
+        setOurData(x)
+      })
+      .catch(err => console.log('your fetch has failed-----',err))
+  }) ,[])
+
   return (
     <div className="shop-page">
       <span className="shop-page-title">Here are the current boards we offer...</span>
@@ -16,15 +32,15 @@ function ShopPage() {
         <span>Brand</span>
         <span>Item</span>
         <span>Id</span>
+        <span>Delete Item</span>
       </div>
-      {
-        boards.map(board => {
+      { ourData &&
+        ourData.map(board => {
           return (
           <Board key={board.id}board={board} />
           )
         })
       }
-
     </div>
   )
 }
