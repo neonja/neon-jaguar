@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Board from '../../components/Board/Board.js';
 import './shop-page.scss';
 
+// tempData
 const boards = [
   {"brand": "zero", "item":"skateboard", "id": 1},
   {"brand": "birdhouse", "item":"skateboard", "id": 2},
@@ -10,6 +11,7 @@ const boards = [
 
 function ShopPage() {
   const [ ourData, setOurData ] = useState(undefined)
+
   useEffect((() => {
     // this pre-pend gets around cors errors
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -37,7 +39,11 @@ function ShopPage() {
       { ourData &&
         ourData.map(board => {
           return (
-          <Board key={board.id}board={board} />
+          <Board
+            setOurData={setOurData}
+            key={board.id}
+            board={board}
+          />
           )
         })
       }
