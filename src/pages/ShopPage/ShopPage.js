@@ -20,7 +20,6 @@ function ShopPage() {
     fetch(proxyurl + url)
       .then(x => x.json())
       .then(x => {
-        console.log('middleware 1',x);
         console.table(x)
         setOurData(x)
       })

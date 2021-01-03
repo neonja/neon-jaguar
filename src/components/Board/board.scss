@@ -7,9 +7,15 @@
     margin: 0 20px;
   }
   button {
-    border: 1px solid red;
     transition: color .4s, background .6s;
     position: relative;
     left: 50px;
+    border: 3px solid rgba(200,200,200,.4);
+    background: lightgrey;
+    &:hover {
+      background: rgba(200,200,200,.4);
+      border: 3px solid rgba(200,200,200,.4);
+      color: white;
+    }
   }
 }

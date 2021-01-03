@@ -1,7 +1,7 @@
 import React from 'react';
 import './board.scss';
 
-function Board({board, setOurData}) {
+function Board({board, setOurData}) { // TODO: setOurData move to Global Store
   const {
     brand,
     item,
@@ -10,43 +10,37 @@ function Board({board, setOurData}) {
   } = board;
 
   function handleDelete() {
-    console.log('here is the delete', id);
-      // this pre-pend gets around cors errors
-      const proxyurl = "https://cors-anywhere.herokuapp.com/";
-      // our internal enpoint
-      let url = `${proxyurl}https://arcane-meadow-19297.herokuapp.com/skateboard/${id}`;
-      fetch(url, {
-        method: 'DELETE'
+    // Delete item
+    // this pre-pend gets around cors errors
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    // our internal enpoint
+    let url = `${proxyurl}https://arcane-meadow-19297.herokuapp.com/skateboard/${id}`;
+    fetch(url, {
+      method: 'DELETE'
+    })
+    .then(x => {
+      console.log(`DELETE PERFORMED ON /skateboard/${id}`);
+      return x;
+    })
+    // then retreive the updated boards
+    .then(x => {
+      let updatedProxyurl = "https://cors-anywhere.herokuapp.com/";
+      let updatedurl = "https://arcane-meadow-19297.herokuapp.com/skateboards";
+
+      fetch(updatedProxyurl + updatedurl)
+      .then(res => res.json())
+      .then(res => {
+        console.log(`UPDATED BOARDSLIST RETREIVED OF...`)
+        console.table(res)
+        setOurData(res)
       })
-        .then(x => {
-          console.log('middleware for DELETE');
-          console.table(x)
-          return x;
-        })
-        .then(x => {
-          let updatedBoards;
-          let updatedProxyurl = "https://cors-anywhere.herokuapp.com/";
-          let updatedurl = "https://arcane-meadow-19297.herokuapp.com/skateboards";
-
-          fetch(updatedProxyurl + updatedurl)
-            .then(x => {
-              console.log('are we getting an updated url call?', x);
-              return x;
-            })
-            .then(res => res.json())
-            .then(res => {
-              console.log('did the .json() work??', res)
-              updatedBoards = res;
-              setOurData(updatedBoards)
-            })
-            .catch(x => {
-              console.log('the update didnt work', x);
-            })
-
-        })
-        .catch(err => console.log('your fetchPOST has failed-----',err))
-
+      .catch(err => {
+        console.log(`UPDATED BOARDLIST RETRIEVAL FAILED___${err}`);
+      })
+    })
+    .catch(err => console.log(`DELETE OF ITEM ${id} FAILED___${err}`))
   }
+
   return (
     <div className="board">
       <span>{brand}</span>
