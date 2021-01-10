@@ -19,7 +19,7 @@ function Board({board, setOurData}) { // TODO: setOurData move to Global Store
       method: 'DELETE'
     })
     .then(x => {
-      console.log(`DELETE PERFORMED ON /skateboard/${id}`);
+      // console.log(`DELETE PERFORMED ON /skateboard/${id}`);
       return x;
     })
     // then retreive the updated boards

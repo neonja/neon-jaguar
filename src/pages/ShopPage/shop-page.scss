@@ -12,4 +12,15 @@
       margin: 50px;
     }
   }
+  .add-board {
+    border: 3px solid rgba(200,200,200,.4);
+    background: lightgrey;
+    transition: color .4s, background .6s;
+    margin: 20px;
+    &:hover {
+      background: rgba(200,200,200,.4);
+      border: 3px solid rgba(200,200,200,.4);
+      color: white;
+    }
+  }
 }
