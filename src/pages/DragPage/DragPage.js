@@ -4,7 +4,7 @@ import React from 'react';
 import "./drag-page.scss";
 import logo from '../../logo.svg';
 import { useDrag } from 'react-dnd';
-
+import ItemTypes from '../../enums.js';
 
 const SomethingToDrag = (props) => {
   return (
@@ -24,7 +24,14 @@ const DragPage = () => {
   })
   return (
       <div className="drag-page">
-        <div className="drag-start-area">
+        <div
+          ref={drag}
+          className="drag-start-area"
+          style={{
+            opacity: isDragging ? 0.5 : 1,
+            fontSize: 25,
+            cursor: 'move',
+          }}>
           <SomethingToDrag />
         </div>
         <div className="drag-end-area">

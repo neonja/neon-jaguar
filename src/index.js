@@ -5,7 +5,7 @@ import App from './App';
 import store from './app/store';
 import { Provider } from 'react-redux';
 import { DndProvider } from 'react-dnd';
-IMPORT { HTML5Backend } from 'react-dnd-html5-backend';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
