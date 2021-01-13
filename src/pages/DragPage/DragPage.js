@@ -3,7 +3,7 @@ import React from 'react';
 // import { DndProvider, DragSource } from 'react-dnd';
 import "./drag-page.scss";
 import logo from '../../logo.svg';
-import { DragSource } from 'react-dnd';
+import { useDrag } from 'react-dnd';
 
 
 const SomethingToDrag = (props) => {
@@ -16,6 +16,12 @@ const SomethingToDrag = (props) => {
 
 const DragPage = () => {
 
+  const [{ isDragging }, drag] = useDrag({
+    item: { type: ItemTypes.DRAG_ICON},
+    collect: monitor => ({
+      isDragging: !!monitor.isDragging()
+    })
+  })
   return (
       <div className="drag-page">
         <div className="drag-start-area">
