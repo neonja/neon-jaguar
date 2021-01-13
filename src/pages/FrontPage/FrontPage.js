@@ -7,6 +7,9 @@ const FrontPage = () => {
       <Link to="/boards">
         <span>Shop Boards Now</span>
       </Link>
+      <Link to="/drag">
+        <span style={{margin: "40px"}}>Drag</span>
+      </Link>
     </div>
   )
 }

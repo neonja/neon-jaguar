@@ -1,0 +1,22 @@
+.drag-page {
+  border: 2px solid lightblue;
+  display: flex;
+  justify-content: center;
+
+  .drag-start-area {
+    border: 1px solid blue;
+    height: 100px;
+    width: 30%;
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+  .drag-end-area {
+    border: 1px solid green;
+    height: 100px;
+    width: 30%;
+    margin: 20px;
+  }
+}

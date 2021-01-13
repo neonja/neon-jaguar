@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header.js';
 import FrontPage from './pages/FrontPage/FrontPage.js';
 import ShopPage from './pages/ShopPage/ShopPage.js';
+import DragPage from './pages/DragPage/DragPage.js';
 import Footer from './components/Footer/Footer.js';
 import './App.scss';
 
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={FrontPage} />
           <Route path="/boards" component={ShopPage} />
+          <Route path="/drag" component={DragPage} />
         </Switch>
         <Footer/>
       </header>
