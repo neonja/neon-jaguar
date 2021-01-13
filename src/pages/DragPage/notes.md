@@ -14,3 +14,8 @@
 - 4 make square droppable
 - 5 add drag preview image
 - 6
+
+
+- failed to hook up the drag correctly.
+- not seeing the problem and errors are too ambiguous.
+- next attempt will follow the chess example more closely.
