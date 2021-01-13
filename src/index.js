@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import store from './app/store';
 import { Provider } from 'react-redux';
+import { DndProvider } from 'react-dnd';
+IMPORT { HTML5Backend } from 'react-dnd-html5-backend';
 import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
@@ -11,6 +13,7 @@ ReactDOM.render(
   <Router>
     <React.StrictMode>
       <Provider store={store}>
+        <DndProvider backend={HTML5Backend}></DndProvider>
         <App />
       </Provider>
     </React.StrictMode>
